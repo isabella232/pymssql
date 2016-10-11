@@ -440,6 +440,9 @@ cdef class Cursor:
         self.description = None
 
     def execute(self, operation, params=()):
+
+        import pdb; pdb.set_trace()
+
         self.description = None
         self._rownumber = 0
 
