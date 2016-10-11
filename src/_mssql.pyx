@@ -942,9 +942,8 @@ cdef class MSSQLConnection:
         if dbtype[0] in (SQLDATETIM4, SQLDATETIME):
             if type(value) not in (datetime.date, datetime.datetime):
                 raise TypeError('value can only be a date or datetime')
-            value = "crap"
-            # value = value.strftime('%Y-%m-%d %H:%M:%S.') + \
-            #     "%03d" % (value.microsecond // 1000)
+            value = value.strftime('%Y-%m-%d %H:%M:%S.') + \
+                "%03d" % (value.microsecond // 1000)
             value = value.encode(self.charset)
             dbtype[0] = SQLCHAR
 
