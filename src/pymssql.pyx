@@ -465,7 +465,8 @@ cdef class Cursor:
 
         except _mssql.MSSQLDatabaseException, e:
             if e.number in prog_errors:
-                raise ProgrammingError, e.args[0]
+                raise Exception("DOES THIS WORK")
+                # raise ProgrammingError, e.args[0]
             if e.number in integrity_errors:
                 raise IntegrityError, e.args[0]
             raise OperationalError, e.args[0]
