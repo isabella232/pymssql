@@ -888,6 +888,8 @@ cdef class MSSQLConnection:
         cdef BYTE *binValue
         cdef DBTYPEINFO decimal_type_info
 
+        import pdb; pdb.set_trace()
+
         IF PYMSSQL_DEBUG == 1:
             sys.stderr.write("convert_python_value: value = %r; dbtype = %d" % (value, dbtype[0]))
 
