@@ -890,6 +890,8 @@ cdef class MSSQLConnection:
         IF PYMSSQL_DEBUG == 1:
             sys.stderr.write("convert_python_value: value = %r; dbtype = %d" % (value, dbtype[0]))
 
+        raise Exception("Jon's error.")
+
         if value is None:
             dbValue[0] = <BYTE *>NULL
             return 0
