@@ -879,10 +879,6 @@ cdef class MSSQLConnection:
     cdef int convert_python_value(self, object value, BYTE **dbValue,
             int *dbtype, int *length) except -1:
         log("_mssql.MSSQLConnection.convert_python_value()")
-
-        print("This is getting to convert_python_value")
-
-
         cdef int *intValue
         cdef double *dblValue
         cdef float *fltValue
@@ -946,11 +942,9 @@ cdef class MSSQLConnection:
         if dbtype[0] in (SQLDATETIM4, SQLDATETIME):
             if type(value) not in (datetime.date, datetime.datetime):
                 raise TypeError('value can only be a date or datetime')
-
-            print("This is getting to SQLDATETIM4, SQLDATETIME")
-
-            value = value.strftime('%Y-%m-%d %H:%M:%S.') + \
-                "%03d" % (value.microsecond // 1000)
+            value = "crap"
+            # value = value.strftime('%Y-%m-%d %H:%M:%S.') + \
+            #     "%03d" % (value.microsecond // 1000)
             value = value.encode(self.charset)
             dbtype[0] = SQLCHAR
 
